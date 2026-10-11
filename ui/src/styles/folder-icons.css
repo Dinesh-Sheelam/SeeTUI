@@ -1,0 +1,53 @@
+/* Folder palettes per appearance, tinted from each appearance's --accent. :root holds dusk, the default. */
+:root,
+[data-appearance="dusk"] {
+  --folder-back: #b8461a;
+  --folder-front-top: #ffb07a;
+  --folder-front-bottom: #e0662a;
+  --folder-paper: #fff1e2;
+  --folder-edge: rgba(80, 20, 30, 0.55);
+  --folder-shine: rgba(255, 232, 205, 0.8);
+  --folder-gloss: 0.15;
+  --folder-shadow: 0 2px 3px rgba(20, 8, 30, 0.5);
+}
+
+[data-appearance="light"] {
+  --folder-back: #3b6fe0;
+  --folder-front-top: #8fb4ff;
+  --folder-front-bottom: #4f80ee;
+  --folder-paper: #ffffff;
+  --folder-edge: rgba(29, 78, 216, 0.45);
+  --folder-shine: rgba(255, 255, 255, 0.75);
+  --folder-gloss: 0;
+  --folder-shadow: 0 1px 1.5px rgba(27, 33, 41, 0.22);
+}
+
+[data-appearance="aqua"] {
+  --folder-back: #12809f;
+  --folder-front-top: #6fd3e6;
+  --folder-front-bottom: #1c9bb8;
+  --folder-paper: #eefafd;
+  --folder-edge: rgba(14, 104, 132, 0.5);
+  --folder-shine: rgba(255, 255, 255, 0.9);
+  --folder-gloss: 0.55;
+  --folder-shadow: 0 2px 3px rgba(14, 70, 100, 0.3);
+}
+
+[data-appearance="dark"] {
+  --folder-back: #3a64c8;
+  --folder-front-top: #9ec5ff;
+  --folder-front-bottom: #5a8ee8;
+  --folder-paper: #d8dde3;
+  --folder-edge: rgba(0, 0, 0, 0.5);
+  --folder-shine: rgba(255, 255, 255, 0.3);
+  --folder-gloss: 0;
+  --folder-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.folder-icon {
+  filter: drop-shadow(var(--folder-shadow));
+}
+
+.app-icon {
+  filter: drop-shadow(0 1px 1.5px rgba(0, 0, 0, 0.35));
+}

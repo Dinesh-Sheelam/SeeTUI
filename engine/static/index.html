@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-appearance="dusk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SeeTUI — SSH Finder</title>
+    <meta name="description" content="Local Finder-style SSH file browser for Linux servers." />
+    <script>
+      (function () {
+        try {
+          var mode =
+            localStorage.getItem("SeeTUI.appearance") ||
+            localStorage.getItem("seetui.appearance") ||
+            localStorage.getItem("VSC.appearance");
+          var known = mode === "light" || mode === "aqua" || mode === "dusk" || mode === "dark";
+          if (!known) {
+            var theme = localStorage.getItem("VSC.theme") || localStorage.getItem("vas.theme");
+            var wallpaper = localStorage.getItem("VSC.wallpaper") || localStorage.getItem("vas.wallpaper");
+            if (wallpaper === "dusk") mode = "dusk";
+            else if (theme === "aqua") mode = "aqua";
+            else if (theme === "adwaita") mode = "dark";
+            else mode = "dusk";
+          }
+          document.documentElement.dataset.appearance = mode;
+          delete document.documentElement.dataset.theme;
+          delete document.documentElement.dataset.wallpaper;
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-BtM8EUVu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BtuJMuxn.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
