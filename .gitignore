@@ -11,8 +11,8 @@ wheels/
 .pytest_cache/
 
 # Frontend
-web/node_modules/
-web/dist/
+ui/node_modules/
+ui/dist/
 *.tsbuildinfo
 
 # OS

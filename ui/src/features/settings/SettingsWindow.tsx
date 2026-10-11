@@ -21,7 +21,7 @@ const FALLBACK_EDITORS: EditorOption[] = [
 
 const APPEARANCE_PREVIEW: Record<Appearance, { from: string; to: string }> = {
   light: { from: "#f5f7fa", to: "#d7dee8" },
-  aqua: { from: "#d7e7f7", to: "#f8eee4" },
+  aqua: { from: "#3e97b8", to: "#e2a36e" },
   dusk: { from: "#5a2d4a", to: "#1a1520" },
   dark: { from: "#1c1f27", to: "#101114" },
 };

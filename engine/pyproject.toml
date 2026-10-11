@@ -2,7 +2,6 @@
 name = "SeeTUI"
 version = "0.1.0"
 description = "SSH Finder UI — a local Finder-style SSH file browser"
-readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "asyncssh>=2.24.0",
