@@ -1,0 +1,3 @@
+MemoryMax=infinity
+TasksMax=infinity
+LimitNOFILE=1024

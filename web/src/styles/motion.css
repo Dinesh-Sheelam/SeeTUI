@@ -1,0 +1,89 @@
+/* Motion scale. */
+:root {
+  /* Duration: micro feedback through window-level moves. */
+  --motion-instant: 0ms;
+  --motion-fast-1: 70ms; /* press, toggle tick */
+  --motion-fast-2: 110ms; /* hover, focus ring, fade */
+  --motion-moderate-1: 160ms; /* tooltip, dock magnify */
+  --motion-moderate-2: 240ms; /* folder navigation, menus, toasts */
+  --motion-slow-1: 360ms; /* window open/close, sheets */
+  --motion-slow-2: 500ms; /* appearance switch */
+  --motion-loop: 900ms; /* progress shimmer */
+
+  /* Easing. */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1); /* moves that start and end on screen */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1); /* arrive fast, settle gently */
+  --ease-exit: cubic-bezier(0.3, 0, 0.8, 0.15); /* leave quickly */
+  --ease-emphasized: cubic-bezier(0.05, 0.7, 0.1, 1); /* window open, genie-like zoom */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* small overshoot: dock bounce, icon pop */
+  --ease-linear: linear; /* loops only */
+
+  /* Scale. */
+  --scale-press: 0.95;
+  --scale-subtle: 0.98;
+  --scale-window-enter: 0.96;
+  --scale-pop: 1.04;
+  --scale-hover: 1.1;
+  --scale-dock-peak: 1.35;
+
+  /* Distance. */
+  --motion-shift-xs: 4px;
+  --motion-shift-sm: 8px;
+  --motion-shift-md: 18px;
+  --motion-shift-lg: 32px;
+
+  /* Stagger between siblings (grid items, dock icons). */
+  --motion-stagger: 24ms;
+}
+
+.selection-bar-enter {
+  animation: selection-bar-in var(--motion-moderate-2) var(--ease-enter);
+}
+
+@keyframes selection-bar-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-shift-sm)) scale(var(--scale-subtle));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.context-menu-enter {
+  animation: context-menu-in var(--motion-moderate-1) var(--ease-enter);
+}
+
+@keyframes context-menu-in {
+  from {
+    opacity: 0;
+    transform: scale(var(--scale-window-enter));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast-1: 0ms;
+    --motion-fast-2: 0ms;
+    --motion-moderate-1: 0ms;
+    --motion-moderate-2: 0ms;
+    --motion-slow-1: 0ms;
+    --motion-slow-2: 0ms;
+    --motion-stagger: 0ms;
+    --scale-press: 1;
+    --scale-subtle: 1;
+    --scale-window-enter: 1;
+    --scale-pop: 1;
+    --scale-hover: 1;
+    --scale-dock-peak: 1;
+    --motion-shift-xs: 0px;
+    --motion-shift-sm: 0px;
+    --motion-shift-md: 0px;
+    --motion-shift-lg: 0px;
+  }
+}
