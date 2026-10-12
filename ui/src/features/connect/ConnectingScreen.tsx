@@ -162,7 +162,7 @@ export function ConnectingScreen({ server, onReady, onBack }: Props) {
                 const status = steps[id];
                 return (
                   <li key={id} className="flex items-baseline gap-3">
-                    <span className={`w-14 shrink-0 text-[11px] ${status === "ok" ? "text-[var(--ok)]" : status === "error" ? "text-[var(--danger)]" : "text-[var(--muted)]"}`}>
+                    <span className={`w-14 shrink-0 text-[11px] font-semibold ${status === "ok" ? "text-[var(--step-ok)]" : status === "error" ? "text-[var(--danger)]" : "text-[var(--muted)]"}`}>
                       {mark(status)}
                     </span>
                     <span className={status === "running" || status === "ok" ? "text-[var(--text)]" : "text-[var(--muted)]"}>

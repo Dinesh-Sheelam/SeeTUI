@@ -23,6 +23,7 @@
   --btn-soft: rgba(247, 242, 235, 0.1);
   --danger: #ffb4a8;
   --ok: #8ee0b0;
+  --step-ok: #8ee0b0;
   --warn: #ffd089;
   --folder: #f0c27a;
   --code-bg: #140f18;
@@ -49,6 +50,7 @@
   --btn-soft: rgba(27, 33, 41, 0.07);
   --danger: #b42318;
   --ok: #0e7a32;
+  --step-ok: #0b9a3c;
   --warn: #8a5a00;
   --folder: #8a5a00;
   --code-bg: #e8eef3;
@@ -74,6 +76,7 @@
   --btn-soft: rgba(19, 36, 51, 0.08);
   --danger: #b42318;
   --ok: #0d6e34;
+  --step-ok: #7dffb0;
   --warn: #8a5200;
   --folder: #8a5200;
   --code-bg: #e7f1f6;
@@ -101,6 +104,7 @@
   --btn-soft: rgba(242, 244, 248, 0.1);
   --danger: #ffb4a8;
   --ok: #86efac;
+  --step-ok: #86efac;
   --warn: #fcd34d;
   --folder: #f5c56b;
   --code-bg: #0c0d11;
