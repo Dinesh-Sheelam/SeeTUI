@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import threading
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 
+from app.paths import static_dir
 from app.routers import (
     archive_routes,
     editor_routes,
@@ -24,7 +25,8 @@ from app.routers import (
 )
 from app.session_store import store
 
-STATIC_DIR = Path(__file__).resolve().parent.parent / "static"
+STATIC_DIR = static_dir()
+activate_event = threading.Event()
 
 
 @asynccontextmanager
@@ -65,6 +67,12 @@ app.include_router(remote_edit_routes.router)
 
 @app.get("/api/healthz")
 async def healthz() -> dict[str, str]:
+    return {"ok": "true", "app": "SeeTUI"}
+
+
+@app.post("/api/desktop/activate")
+async def desktop_activate() -> dict[str, str]:
+    activate_event.set()
     return {"ok": "true"}
 
 

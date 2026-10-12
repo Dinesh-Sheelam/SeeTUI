@@ -4,6 +4,7 @@ import type { MouseEvent } from "react";
 import type { FileEntry } from "../../api/types";
 import { useDesktop } from "../../desktop/desktop-context";
 import { FolderIcon } from "../../desktop/FolderIcon";
+import { downloadFile } from "../../lib/download";
 import { fmtDate, fmtModified, fmtSize, isEditableFile, joinPath, kindLabel, viewerKind } from "../../lib/file-type";
 import { editorLabel, loadPreferredEditor, subscribePreferredEditor } from "../../state/editor";
 import { useRemoteEdit } from "../../state/remote-edit";
@@ -180,12 +181,10 @@ export function FilesWindow() {
     setCtx({ x: event.clientX, y: event.clientY, path: entry.path });
   }
 
-  function downloadEntry(entry: FileEntry) {
+  async function downloadEntry(entry: FileEntry) {
     if (!api) return;
-    const link = document.createElement("a");
-    link.href = api.downloadUrl(entry.path);
-    link.download = entry.name;
-    link.click();
+    const result = await downloadFile(api.downloadUrl(entry.path), entry.name);
+    if (result === "cancelled") toast("Save cancelled");
   }
 
   async function copyPaths(items: FileEntry[]) {

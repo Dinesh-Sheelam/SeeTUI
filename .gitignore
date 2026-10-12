@@ -1,8 +1,6 @@
 # Python-generated files
 __pycache__/
 *.py[oc]
-build/
-dist/
 wheels/
 *.egg-info
 
@@ -14,6 +12,13 @@ wheels/
 ui/node_modules/
 ui/dist/
 *.tsbuildinfo
+
+# Local build output, download site, and private build notes
+build/
+dist/
+hosting/
+website/
+build.md
 
 # OS
 .DS_Store

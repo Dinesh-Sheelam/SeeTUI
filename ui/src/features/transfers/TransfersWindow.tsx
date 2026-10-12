@@ -1,6 +1,7 @@
 import { ArrowDownToLine, ArrowUpFromLine, FolderArchive, HardDrive } from "lucide-react";
 import { useRef, useState } from "react";
 import type { FileEntry, TransferJob } from "../../api/types";
+import { downloadFile } from "../../lib/download";
 import { Badge, Button, Card, EmptyState, Meter } from "../monitor/ui";
 import type { Tone } from "../monitor/tone";
 import { useSession } from "../../state/session";
@@ -44,14 +45,15 @@ export function TransfersWindow() {
     });
   }
 
-  function download(path: string, name: string) {
+  async function download(path: string, name: string) {
     if (!api) return;
-    const link = document.createElement("a");
-    link.href = api.downloadUrl(path);
-    link.download = name;
-    link.click();
+    const result = await downloadFile(api.downloadUrl(path), name);
+    if (result === "cancelled") {
+      toast("Save cancelled");
+      return;
+    }
     record(name, 100, "downloaded");
-    toast(`Sending ${name} to this computer`);
+    toast(result === "saved" ? `Saved ${name}` : `Sending ${name} to this computer`);
     setMode("idle");
     setFolder(null);
   }
